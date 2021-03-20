@@ -13,6 +13,7 @@ class NavBar extends StatelessWidget {
   final VoidCallback onTapContact;
 
   NavBar({
+    Key key,
     this.onTapSkills,
     this.onTapOpenSource,
     this.onTapProject,
@@ -20,7 +21,7 @@ class NavBar extends StatelessWidget {
     this.onTapBlogs,
     this.onTapTalks,
     this.onTapContact,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class NavBar extends StatelessWidget {
             'ali raza',
             style: TextStyle(
               color: AppColors.red,
-              fontSize: isDesktop(context) ? 40 : 24,
+              fontSize: isDesktop(context) ? 40 : 28,
               fontFamily: 'Challina',
             ),
           ),
@@ -53,6 +54,15 @@ class NavBar extends StatelessWidget {
                 NavBarButton(onPressed: onTapContact, title: 'Contact Me'),
               ],
             ),
+          if (!isDesktop(context))
+            IconButton(
+                icon: Icon(
+                  Icons.menu,
+                  color: AppColors.black54,
+                ),
+                onPressed: () {
+                  Scaffold.of(context).openEndDrawer();
+                }),
         ],
       ),
     );

@@ -5,7 +5,7 @@ class NavBarButton extends StatefulWidget {
   final String title;
   final VoidCallback onPressed;
 
-  NavBarButton({this.title, this.onPressed});
+  NavBarButton({Key key, this.title, this.onPressed}) : super(key: key);
 
   @override
   _NavBarButtonState createState() => _NavBarButtonState();
