@@ -12,9 +12,11 @@ class SkillsSection extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
 
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: isDesktop(context) ? 80 : 40,
-        vertical: 50,
+      padding: EdgeInsets.only(
+        top: 50,
+        bottom: 50,
+        left: isDesktop(context) ? 60 : 40,
+        right: isDesktop(context) ? 80 : 40,
       ),
       child: Column(
         children: [
@@ -23,15 +25,38 @@ class SkillsSection extends StatelessWidget {
               if (!isMobile(context))
                 Expanded(
                   child: Container(
-                    padding: const EdgeInsets.all(20),
-                    height: height * 0.7,
-                    child: Text('Image or Illustration'),
+                    padding:
+                        EdgeInsets.only(right: !isMobile(context) ? 20 : 0),
+                    // height: height * 0.7,
+                    child: Image.asset(
+                      'assets/images/developerActivity.png',
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    if (!isMobile(context))
+                      Text(
+                        'Skills',
+                        style: TextStyle(
+                          color: AppColors.black54,
+                          fontSize: isDesktop(context) ? 52 : 32,
+                        ),
+                      ),
+                    if (isMobile(context))
+                      Center(
+                        child: Text(
+                          'Skills',
+                          style: TextStyle(
+                            color: AppColors.black,
+                            fontSize: isDesktop(context) ? 52 : 32,
+                          ),
+                        ),
+                      ),
+                    SizedBox(height: isDesktop(context) ? 40 : 30),
                     Wrap(
                       crossAxisAlignment: WrapCrossAlignment.center,
                       alignment: WrapAlignment.center,
@@ -93,9 +118,13 @@ class SkillsSection extends StatelessWidget {
           ),
           if (isMobile(context))
             Container(
-              padding: const EdgeInsets.all(40),
-              height: height * 0.3,
-              child: Text('Image or Illustration'),
+              padding: const EdgeInsets.only(top: 30),
+              // height: height * 0.3,
+              child: Image.asset(
+                'assets/images/developerActivity.png',
+                fit: BoxFit.contain,
+              ),
+              // child: Text('Image or Illustration'),
             ),
         ],
       ),

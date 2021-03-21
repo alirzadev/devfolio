@@ -77,9 +77,13 @@ class IntroSection extends StatelessWidget {
               if (!isMobile(context))
                 Expanded(
                   child: Container(
-                    height: height * 0.7,
-                    padding: const EdgeInsets.all(20),
-                    child: Text('Image or Illustration'),
+                    // height: height * 0.7,
+                    // padding: const EdgeInsets.all(20),
+                    child: Image.asset(
+                      'assets/images/manOnTable.png',
+                      fit: BoxFit.contain,
+                    ),
+                    // child: Text('Image or Illustration'),
                   ),
                 ),
             ],
@@ -87,9 +91,13 @@ class IntroSection extends StatelessWidget {
           if (isMobile(context))
             Container(
               // width: width/3,
-              height: height * 0.3,
-              padding: const EdgeInsets.all(40),
-              child: Text('Image or Illustration'),
+              // height: height * 0.3,
+              padding: const EdgeInsets.only(top: 30),
+              child: Image.asset(
+                'assets/images/manOnTable.png',
+                fit: BoxFit.contain,
+              ),
+              // child: Text('Image or Illustration'),
             )
         ],
       ),
