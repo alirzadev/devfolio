@@ -77,7 +77,6 @@ class IntroSection extends StatelessWidget {
               if (!isMobile(context))
                 Expanded(
                   child: Container(
-                    // width: width/3,
                     height: height * 0.7,
                     padding: const EdgeInsets.all(20),
                     child: Text('Image or Illustration'),
