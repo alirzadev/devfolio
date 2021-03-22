@@ -3,6 +3,7 @@ import 'package:devfolio/view/homepage/componenets/custom_end_drawer.dart';
 import 'package:devfolio/view/homepage/componenets/intro_section.dart';
 import 'package:devfolio/view/homepage/componenets/nav_bar.dart';
 import 'package:devfolio/view/homepage/componenets/open_source_section.dart';
+import 'package:devfolio/view/homepage/componenets/projects_section.dart';
 import 'package:devfolio/view/homepage/componenets/skills_section.dart';
 import 'package:flutter/material.dart';
 
@@ -48,6 +49,8 @@ class HomePage extends StatelessWidget {
               SkillsSection(),
               //OPEN-SOURCE--SECTION............................................
               OpenSourceSection(),
+              //PROJECT-SECTION.................................................
+              ProjectsSection(),
             ],
           ),
         ),

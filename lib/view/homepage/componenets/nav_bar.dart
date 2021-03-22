@@ -2,6 +2,7 @@ import 'package:devfolio/custom_widgets/nav_bar_button.dart';
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:devfolio/utilities/responsive.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NavBar extends StatelessWidget {
   final VoidCallback onTapSkills;
@@ -34,11 +35,11 @@ class NavBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            'ali raza',
-            style: TextStyle(
+            'Ali Raza',
+            style: GoogleFonts.parisienne(
               color: AppColors.red,
               fontSize: isDesktop(context) ? 40 : 28,
-              fontFamily: 'Challina',
+              // fontFamily: 'Challina',
             ),
           ),
           if (isDesktop(context))
@@ -47,10 +48,10 @@ class NavBar extends StatelessWidget {
                 NavBarButton(onPressed: onTapSkills, title: 'Skills'),
                 NavBarButton(onPressed: onTapOpenSource, title: 'Open Source'),
                 NavBarButton(onPressed: onTapProject, title: 'Projects'),
-                NavBarButton(
-                    onPressed: onTapAchievements, title: 'Achievements'),
-                NavBarButton(onPressed: onTapBlogs, title: 'Blogs'),
-                NavBarButton(onPressed: onTapTalks, title: 'Talks'),
+                // NavBarButton(
+                //     onPressed: onTapAchievements, title: 'Achievements'),
+                // NavBarButton(onPressed: onTapBlogs, title: 'Blogs'),
+                // NavBarButton(onPressed: onTapTalks, title: 'Talks'),
                 NavBarButton(onPressed: onTapContact, title: 'Contact Me'),
               ],
             ),
