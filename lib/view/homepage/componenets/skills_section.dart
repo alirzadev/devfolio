@@ -43,6 +43,7 @@ class SkillsSection extends StatelessWidget {
                         'Skills',
                         style: TextStyle(
                           color: AppColors.black54,
+                          letterSpacing: -2,
                           fontSize: isDesktop(context) ? 52 : 32,
                         ),
                       ),
@@ -52,6 +53,7 @@ class SkillsSection extends StatelessWidget {
                           'Skills',
                           style: TextStyle(
                             color: AppColors.black,
+                            letterSpacing: -1,
                             fontSize: isDesktop(context) ? 52 : 32,
                           ),
                         ),
@@ -148,7 +150,7 @@ class SkillsDescription extends StatelessWidget {
             Icon(
               Icons.bolt,
               size: 20,
-              color: AppColors.orangeAccent.withOpacity(.5),
+              color: AppColors.orangeAccent.withOpacity(.75),
             ),
             Expanded(
               child: Container(
