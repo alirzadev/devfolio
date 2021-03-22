@@ -43,6 +43,7 @@ class _ProductCardState extends State<ProductCard> {
           padding: const EdgeInsets.all(25),
           decoration: BoxDecoration(
             color: AppColors.white,
+            border: Border.all(color: AppColors.red.withOpacity(.75)),
             boxShadow: [
               BoxShadow(
                 color: AppColors.grey.withOpacity(.25),

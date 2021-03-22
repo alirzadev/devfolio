@@ -42,7 +42,7 @@ class SkillsSection extends StatelessWidget {
                       Text(
                         'Skills',
                         style: TextStyle(
-                          color: AppColors.black54,
+                          color: AppColors.black,
                           letterSpacing: -2,
                           fontSize: isDesktop(context) ? 52 : 32,
                         ),

@@ -7,6 +7,8 @@ import 'package:devfolio/view/homepage/componenets/projects_section.dart';
 import 'package:devfolio/view/homepage/componenets/skills_section.dart';
 import 'package:flutter/material.dart';
 
+import 'componenets/contacts_section.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({
     Key key,
@@ -47,10 +49,12 @@ class HomePage extends StatelessWidget {
               IntroSection(),
               //SKILLS-SECTION..................................................
               SkillsSection(),
-              //OPEN-SOURCE--SECTION............................................
+              //OPEN-SOURCE-SECTION............................................
               OpenSourceSection(),
               //PROJECT-SECTION.................................................
               ProjectsSection(),
+              //CONTACT-ME-SECTION.................................................
+              ContactsSection(),
             ],
           ),
         ),
