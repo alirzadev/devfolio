@@ -9,10 +9,24 @@ import 'package:flutter/material.dart';
 
 import 'componenets/contacts_section.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({
     Key key,
   }) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  ScrollController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = ScrollController();
+    _controller.addListener(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,27 +37,30 @@ class HomePage extends StatelessWidget {
       backgroundColor: AppColors.white,
       //END-DRAWER..............................................................
       endDrawer: CustomEndDrawer(
-        onTapSkills: () {},
-        onTapOpenSource: () {},
-        onTapProject: () {},
-        onTapAchievements: () {},
-        onTapBlogs: () {},
-        onTapTalks: () {},
-        onTapContact: () {},
+        controller: _controller,
+        distanceToSkills: width * 2.2,
+        distanceToOpenSource: width * 4.7,
+        distanceToProject: width * 5.8,
+        // distanceToAchievements: 0,
+        // distanceToBlogs: 0,
+        // distanceToTalks: 0,
+        distanceToContact: width * 7,
       ),
       body: SingleChildScrollView(
+        controller: _controller,
         child: Container(
           child: Column(
             children: [
               //NAVBAR..........................................................
               NavBar(
-                onTapSkills: () {},
-                onTapOpenSource: () {},
-                onTapProject: () {},
-                onTapAchievements: () {},
-                onTapBlogs: () {},
-                onTapTalks: () {},
-                onTapContact: () {},
+                controller: _controller,
+                distanceToSkills: width / 2,
+                distanceToOpenSource: width * 0.95,
+                distanceToProject: width * 1.3,
+                // distanceToAchievements: 0,
+                // distanceToBlogs: 0,
+                // distanceToTalks: 0,
+                distanceToContact: width * 1.5,
               ),
               //INTRO-SECTION...................................................
               IntroSection(),

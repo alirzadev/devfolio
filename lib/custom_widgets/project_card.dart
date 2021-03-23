@@ -1,5 +1,6 @@
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:devfolio/utilities/responsive.dart';
+import 'package:devfolio/utilities/url_launer.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatefulWidget {
@@ -25,6 +26,7 @@ class _ProductCardState extends State<ProductCard> {
       child: InkWell(
         onTap: () {
           //launchUrl
+          UrlLauncher(url: widget.url).launchUrl();
         },
         onHover: (isHovering) {
           if (isHovering) {
@@ -55,7 +57,7 @@ class _ProductCardState extends State<ProductCard> {
           ),
           child: Center(
             child: Image.asset(
-              'assets/images/klimeLogo.png',
+              widget.image,
               fit: BoxFit.contain,
             ),
           ),

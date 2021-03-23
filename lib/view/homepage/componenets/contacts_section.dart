@@ -1,15 +1,29 @@
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:devfolio/utilities/responsive.dart';
+import 'package:devfolio/utilities/url_launer.dart';
 import 'package:devfolio/view/homepage/componenets/social_media_icons.dart';
 import 'package:flutter/material.dart';
 
 class ContactsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    String themeUrl = 'https://github.com/saadpasta/developerFolio';
+    String devFolioUrl = 'https://github.com/alirzadev/Dev-Folio';
+
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: isDesktop(context) ? 80 : 40,
-        vertical: 50,
+      padding: EdgeInsets.only(
+        top: 50,
+        bottom: isMobile(context) ? 20 : 50,
+        left: !isMobile(context)
+            ? isDesktop(context)
+                ? 80
+                : 40
+            : 15,
+        right: !isMobile(context)
+            ? isDesktop(context)
+                ? 80
+                : 40
+            : 15,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -22,10 +36,10 @@ class ContactsSection extends StatelessWidget {
               fontSize: isDesktop(context) ? 52 : 32,
             ),
           ),
-          SizedBox(height: isMobile(context) ? 10 : 20),
+          SizedBox(height: isMobile(context) ? 5 : 15),
           Container(
             child: Text(
-              'DISCUSS A PROJECT OR JUST WANT TO SAY HI? MY INBOX IS OPEN FOR ALL.',
+              'Discuss a project or just want to say hi? My inbox is open for all.',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: AppColors.black54,
@@ -51,23 +65,50 @@ class ContactsSection extends StatelessWidget {
           ),
           SizedBox(height: isMobile(context) ? 20 : 30),
           SocialMediaIcons(isContactSection: true),
-          SizedBox(height: isMobile(context) ? 30 : 40),
+          SizedBox(height: isMobile(context) ? 35 : 45),
           Container(
-            child: Text(
-              'Made with Flutter 💙 by Ali Raza',
-              style: TextStyle(
-                color: AppColors.black54,
-                fontSize: 14,
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Made with ',
+                  style: TextStyle(
+                    color: AppColors.black54,
+                    fontSize: 14,
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    UrlLauncher(url: devFolioUrl).launchUrl();
+                  },
+                  child: Text(
+                    'Flutter ',
+                    style: TextStyle(
+                      color: AppColors.red.withOpacity(.75),
+                      fontSize: 14,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
+                Text(
+                  '💙 by Ali Raza',
+                  style: TextStyle(
+                    color: AppColors.black54,
+                    fontSize: 14,
+                  ),
+                ),
+              ],
             ),
           ),
           SizedBox(height: isMobile(context) ? 10 : 20),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              UrlLauncher(url: themeUrl).launchUrl();
+            },
             child: Text(
               'Theme by Saad Pasta',
               style: TextStyle(
-                color: AppColors.red.withOpacity(.75),
+                color: AppColors.black54,
                 fontSize: 14,
                 decoration: TextDecoration.underline,
               ),

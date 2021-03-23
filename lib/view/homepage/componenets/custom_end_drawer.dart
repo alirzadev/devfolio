@@ -2,23 +2,25 @@ import 'package:devfolio/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomEndDrawer extends StatelessWidget {
-  final VoidCallback onTapSkills;
-  final VoidCallback onTapOpenSource;
-  final VoidCallback onTapProject;
-  final VoidCallback onTapAchievements;
-  final VoidCallback onTapBlogs;
-  final VoidCallback onTapTalks;
-  final VoidCallback onTapContact;
+  final ScrollController controller;
+  final double distanceToSkills;
+  final double distanceToOpenSource;
+  final double distanceToProject;
+  final double distanceToAchievements;
+  final double distanceToBlogs;
+  final double distanceToTalks;
+  final double distanceToContact;
 
   CustomEndDrawer({
     Key key,
-    this.onTapSkills,
-    this.onTapOpenSource,
-    this.onTapProject,
-    this.onTapAchievements,
-    this.onTapBlogs,
-    this.onTapTalks,
-    this.onTapContact,
+    this.controller,
+    this.distanceToSkills,
+    this.distanceToOpenSource,
+    this.distanceToProject,
+    this.distanceToAchievements,
+    this.distanceToBlogs,
+    this.distanceToTalks,
+    this.distanceToContact,
   }) : super(key: key);
 
   @override
@@ -29,7 +31,8 @@ class CustomEndDrawer extends StatelessWidget {
       width: 250,
       height: height,
       child: Drawer(
-        child: Padding(
+        child: Container(
+          color: AppColors.white,
           padding: const EdgeInsets.only(right: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -46,18 +49,44 @@ class CustomEndDrawer extends StatelessWidget {
                   ),
                 ),
               ),
-              DrawerButton(onPressed: onTapSkills, title: 'Skills'),
-              DrawerButton(onPressed: onTapOpenSource, title: 'Open Source'),
-              DrawerButton(onPressed: onTapProject, title: 'Projects'),
+              DrawerButton(
+                onPressed: () {
+                  scrollToPosition(context, distanceToSkills);
+                },
+                title: 'Skills',
+              ),
+              DrawerButton(
+                onPressed: () {
+                  scrollToPosition(context, distanceToOpenSource);
+                },
+                title: 'Open Source',
+              ),
+              DrawerButton(
+                onPressed: () {
+                  scrollToPosition(context, distanceToProject);
+                },
+                title: 'Projects',
+              ),
               // DrawerButton(onPressed: onTapAchievements, title: 'Achievements'),
               // DrawerButton(onPressed: onTapBlogs, title: 'Blogs'),
               // DrawerButton(onPressed: onTapTalks, title: 'Talks'),
-              DrawerButton(onPressed: onTapContact, title: 'Contact Me'),
+              DrawerButton(
+                onPressed: () {
+                  scrollToPosition(context, distanceToContact);
+                },
+                title: 'Contact Me',
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void scrollToPosition(BuildContext context, double distance) {
+    controller.animateTo(distance,
+        duration: Duration(milliseconds: 500), curve: Curves.easeIn);
+    Navigator.of(context).pop();
   }
 }
 

@@ -1,5 +1,6 @@
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:devfolio/utilities/responsive.dart';
+import 'package:devfolio/utilities/url_launer.dart';
 import 'package:flutter/material.dart';
 
 class GithubRepoCard extends StatefulWidget {
@@ -28,10 +29,11 @@ class _GithubRepoCardState extends State<GithubRepoCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: !isMobile(context) ? 40 : 20),
+      padding: EdgeInsets.only(right: !isMobile(context) ? 40 : 15),
       child: InkWell(
         onTap: () {
           //Launch RepoUrl
+          UrlLauncher(url: widget.repoUrl).launchUrl();
         },
         onHover: (isHovering) {
           if (isHovering) {
@@ -136,7 +138,7 @@ class CustomShape extends CustomPainter {
     Path path = Path();
 
     paint
-      ..color = AppColors.red.withOpacity(.9)
+      ..color = AppColors.red.withOpacity(.95)
       ..style = PaintingStyle.fill;
 
     path..lineTo(0, size.height / 3);

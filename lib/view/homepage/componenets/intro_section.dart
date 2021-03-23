@@ -10,7 +10,11 @@ class IntroSection extends StatelessWidget {
 
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: isDesktop(context) ? 80 : 40,
+        horizontal: !isMobile(context)
+            ? isDesktop(context)
+                ? 80
+                : 40
+            : 15,
         vertical: 50,
       ),
       child: Column(
@@ -26,30 +30,31 @@ class IntroSection extends StatelessWidget {
                       ? CrossAxisAlignment.start
                       : CrossAxisAlignment.center,
                   children: [
+                    SizedBox(height: 10),
                     RichText(
                       text: TextSpan(
                         text: 'I\'m Ali Raza',
                         style: TextStyle(
                           color: AppColors.red,
-                          fontSize: isDesktop(context) ? 60 : 40,
+                          fontSize: isDesktop(context) ? 60 : 34,
                         ),
                       ),
                     ),
-                    SizedBox(height: 30),
+                    SizedBox(height: !isDesktop(context) ? 15 : 30),
                     Text(
                       'Junior Flutter Developer | Open Source Contributor | Developer Student Club Lead',
                       textAlign: isMobile(context)
                           ? TextAlign.center
                           : TextAlign.start,
                       style: TextStyle(
-                        height: 1.7,
+                        height: !isDesktop(context) ? 1.2 : 1.5,
                         color: AppColors.black54,
                         fontSize: isDesktop(context) ? 20 : 16,
                       ),
                     ),
-                    SizedBox(height: 30),
+                    SizedBox(height: !isDesktop(context) ? 15 : 25),
                     SocialMediaIcons(isContactSection: false),
-                    SizedBox(height: 30),
+                    SizedBox(height: !isDesktop(context) ? 40 : 55),
                     RaisedButton(
                       onPressed: () {},
                       shape: RoundedRectangleBorder(
@@ -59,8 +64,8 @@ class IntroSection extends StatelessWidget {
                       color: AppColors.white,
                       child: Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: isMobile(context) ? 14.0 : 18.0,
-                          vertical: isMobile(context) ? 10.0 : 14.0,
+                          horizontal: !isDesktop(context) ? 14.0 : 18.0,
+                          vertical: !isDesktop(context) ? 10.0 : 14.0,
                         ),
                         child: Text(
                           'RESUME',
@@ -73,7 +78,8 @@ class IntroSection extends StatelessWidget {
                   ],
                 ),
               ),
-              if (!isMobile(context))
+              if (isDesktop(context)) SizedBox(height: 30),
+              if (isDesktop(context))
                 Expanded(
                   child: Container(
                     // height: height * 0.7,

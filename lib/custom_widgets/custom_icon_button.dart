@@ -14,16 +14,16 @@ class CustomIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 10),
+      padding: EdgeInsets.only(right: 10),
       child: InkWell(
         onTap: onPressed,
         onHover: (isHovering) {},
         child: CircleAvatar(
-          radius: isMobile(context) ? 18 : 22,
+          radius: isMobile(context) ? 20 : 22,
           backgroundColor: color,
           child: FaIcon(
             icon,
-            size: isMobile(context) ? 16 : 18,
+            size: 18,
             color: AppColors.white,
           ),
         ),

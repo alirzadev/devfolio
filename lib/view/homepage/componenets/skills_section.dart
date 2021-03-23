@@ -15,8 +15,16 @@ class SkillsSection extends StatelessWidget {
       padding: EdgeInsets.only(
         top: 50,
         bottom: 50,
-        left: isDesktop(context) ? 60 : 40,
-        right: isDesktop(context) ? 80 : 40,
+        left: !isMobile(context)
+            ? isDesktop(context)
+                ? 60
+                : 40
+            : 20,
+        right: !isMobile(context)
+            ? isDesktop(context)
+                ? 80
+                : 40
+            : 20,
       ),
       child: Column(
         children: [
@@ -36,7 +44,9 @@ class SkillsSection extends StatelessWidget {
                 ),
               Expanded(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: isMobile(context)
+                      ? CrossAxisAlignment.center
+                      : CrossAxisAlignment.start,
                   children: [
                     if (!isMobile(context))
                       Text(
@@ -58,35 +68,55 @@ class SkillsSection extends StatelessWidget {
                           ),
                         ),
                       ),
-                    SizedBox(height: isDesktop(context) ? 40 : 30),
-                    Wrap(
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      alignment: WrapAlignment.center,
-                      runAlignment: WrapAlignment.center,
-                      spacing: 20,
-                      runSpacing: 15,
-                      children: [
-                        SkillsIcon(
-                            icon: FontAwesomeIcons.html5, title: 'HTML5'),
-                        SkillsIcon(
-                            icon: FontAwesomeIcons.css3Alt, title: 'CSS3'),
-                        SkillsIcon(
-                            icon: FontAwesomeIcons.cuttlefish, title: 'C++'),
-                        SkillsIcon(icon: FontAwesomeIcons.java, title: 'Java'),
-                        SkillsIcon(
-                            icon: FontAwesomeIcons.python, title: 'Python'),
-                        SkillsIcon(
-                            icon: FontAwesomeIcons.database, title: 'MySql'),
-                        SkillsIcon(
-                            icon: FontAwesomeIcons.fire, title: 'Flutter'),
-                        SkillsIcon(icon: FontAwesomeIcons.fire, title: 'Dart'),
-                        SkillsIcon(
-                            icon: FontAwesomeIcons.fire, title: 'Firebase'),
-                        SkillsIcon(
-                            icon: FontAwesomeIcons.github, title: 'Github'),
-                        SkillsIcon(
-                            icon: FontAwesomeIcons.gitlab, title: 'Gitlab'),
-                      ],
+                    SizedBox(height: isMobile(context) ? 5 : 15),
+                    Container(
+                      child: Text(
+                        'A bit insane, lazy yet passionate developer who loves Flutter.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: AppColors.black54,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: isDesktop(context) ? 55 : 45),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Center(
+                        child: Wrap(
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          alignment: WrapAlignment.center,
+                          runAlignment: WrapAlignment.center,
+                          spacing: 20,
+                          runSpacing: 15,
+                          children: [
+                            SkillsIcon(
+                                icon: FontAwesomeIcons.html5, title: 'HTML5'),
+                            SkillsIcon(
+                                icon: FontAwesomeIcons.css3Alt, title: 'CSS3'),
+                            SkillsIcon(
+                                icon: FontAwesomeIcons.cuttlefish,
+                                title: 'C++'),
+                            SkillsIcon(
+                                icon: FontAwesomeIcons.java, title: 'Java'),
+                            SkillsIcon(
+                                icon: FontAwesomeIcons.python, title: 'Python'),
+                            SkillsIcon(
+                                icon: FontAwesomeIcons.database,
+                                title: 'MySql'),
+                            SkillsIcon(
+                                icon: FontAwesomeIcons.fire, title: 'Flutter'),
+                            SkillsIcon(
+                                icon: FontAwesomeIcons.fire, title: 'Dart'),
+                            SkillsIcon(
+                                icon: FontAwesomeIcons.fire, title: 'Firebase'),
+                            SkillsIcon(
+                                icon: FontAwesomeIcons.github, title: 'Github'),
+                            SkillsIcon(
+                                icon: FontAwesomeIcons.gitlab, title: 'Gitlab'),
+                          ],
+                        ),
+                      ),
                     ),
                     SizedBox(height: 20),
                     Column(

@@ -11,28 +11,28 @@ class OpenSourceSection extends StatelessWidget {
           'Responsive, robust, reusable devfolio built with flutter',
       'language': 'Dart',
       'framework': 'Flutter',
-      'repoUrl': '',
+      'repoUrl': 'https://github.com/alirzadev/Dev-Folio',
     },
     {
       'repoName': 'Klime',
       'repoDescription': 'A weather forecast app, uses OpenWeatherMap Api',
       'language': 'Dart',
       'framework': 'Flutter',
-      'repoUrl': '',
+      'repoUrl': 'https://github.com/alirzadev/klime',
     },
     {
       'repoName': 'BMI Calculator',
       'repoDescription': 'A simple bmi calculator with Neumorphic UI',
       'language': 'Dart',
       'framework': 'Flutter',
-      'repoUrl': '',
+      'repoUrl': 'https://github.com/alirzadev/BMI-Calculator',
     },
     {
       'repoName': 'Lamp Store',
       'repoDescription': 'Two pages Minimalistic UI design of an ecom app ',
       'language': 'Dart',
       'framework': 'Flutter',
-      'repoUrl': '',
+      'repoUrl': 'https://github.com/alirzadev/Lamp-Store',
     },
     {
       'repoName': 'Design-102',
@@ -40,7 +40,8 @@ class OpenSourceSection extends StatelessWidget {
           'Cool, minimalistic sliding screens UI for HacktoberFest\'20',
       'language': 'Dart',
       'framework': 'Flutter',
-      'repoUrl': '',
+      'repoUrl':
+          'https://github.com/alirzadev/flutter-projects/tree/master/design_102',
     },
   ];
 
@@ -48,11 +49,17 @@ class OpenSourceSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: isDesktop(context) ? 80 : 40,
+        horizontal: !isMobile(context)
+            ? isDesktop(context)
+                ? 80
+                : 40
+            : 15,
         vertical: 50,
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: isMobile(context)
+            ? CrossAxisAlignment.center
+            : CrossAxisAlignment.start,
         children: [
           if (!isMobile(context))
             Text(
@@ -74,7 +81,18 @@ class OpenSourceSection extends StatelessWidget {
                 ),
               ),
             ),
-          SizedBox(height: isDesktop(context) ? 40 : 30),
+          SizedBox(height: isMobile(context) ? 5 : 15),
+          Container(
+            child: Text(
+              'Some GitHub repositories of Flutter projects.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: AppColors.black54,
+                fontSize: 16,
+              ),
+            ),
+          ),
+          SizedBox(height: isDesktop(context) ? 55 : 45),
           Container(
             height: 220,
             child: ListView.builder(

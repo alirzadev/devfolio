@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "970130987306",
+    "project_id": "devfolio-ce382",
+    "storage_bucket": "devfolio-ce382.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970130987306:android:784f0207185ce6eb986653",
+        "android_client_info": {
+          "package_name": "com.example.devfolio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "970130987306-qdmqu55fqh9tu59k0jajmi0i6m4pcgse.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkO9s5HNfKdt0VFjvZOGkicVKts3a8hHg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "970130987306-qdmqu55fqh9tu59k0jajmi0i6m4pcgse.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
