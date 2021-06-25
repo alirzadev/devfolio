@@ -1,12 +1,12 @@
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:devfolio/utilities/responsive.dart';
-import 'package:devfolio/view/homepage/componenets/social_media_icons.dart';
 import 'package:flutter/material.dart';
+
+import 'componenets/social_media_icons.dart';
 
 class IntroSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
 
     return Padding(
       padding: EdgeInsets.symmetric(
@@ -26,9 +26,7 @@ class IntroSection extends StatelessWidget {
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: !isMobile(context)
-                      ? CrossAxisAlignment.start
-                      : CrossAxisAlignment.center,
+                  crossAxisAlignment: !isMobile(context) ? CrossAxisAlignment.start : CrossAxisAlignment.center,
                   children: [
                     SizedBox(height: 10),
                     RichText(
@@ -43,9 +41,7 @@ class IntroSection extends StatelessWidget {
                     SizedBox(height: !isDesktop(context) ? 15 : 30),
                     Text(
                       'Junior Flutter Developer | Open Source Contributor | Developer Student Club Lead',
-                      textAlign: isMobile(context)
-                          ? TextAlign.center
-                          : TextAlign.start,
+                      textAlign: isMobile(context) ? TextAlign.center : TextAlign.start,
                       style: TextStyle(
                         height: !isDesktop(context) ? 1.2 : 1.5,
                         color: AppColors.black54,
@@ -69,9 +65,7 @@ class IntroSection extends StatelessWidget {
                         ),
                         child: Text(
                           'RESUME',
-                          style: TextStyle(
-                              color: AppColors.red,
-                              fontWeight: FontWeight.w700),
+                          style: TextStyle(color: AppColors.red, fontWeight: FontWeight.w700),
                         ),
                       ),
                     ),

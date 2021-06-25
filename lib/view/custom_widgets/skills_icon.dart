@@ -30,6 +30,9 @@ class _SkillsIconState extends State<SkillsIcon> {
           });
         }
       },
+      hoverColor: Colors.transparent,
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
       child: Column(
         children: [
           FaIcon(

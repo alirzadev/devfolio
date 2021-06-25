@@ -7,7 +7,7 @@ class ProductCard extends StatefulWidget {
   final String image;
   final String url;
 
-  ProductCard({Key key, this.image, this.url}) : super(key: key);
+  ProductCard({Key key, @required this.image, @required this.url}) : super(key: key);
 
   @override
   _ProductCardState createState() => _ProductCardState();

@@ -1,27 +1,10 @@
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class CustomEndDrawer extends StatelessWidget {
-  final ScrollController controller;
-  final double distanceToSkills;
-  final double distanceToOpenSource;
-  final double distanceToProject;
-  final double distanceToAchievements;
-  final double distanceToBlogs;
-  final double distanceToTalks;
-  final double distanceToContact;
-
-  CustomEndDrawer({
-    Key key,
-    this.controller,
-    this.distanceToSkills,
-    this.distanceToOpenSource,
-    this.distanceToProject,
-    this.distanceToAchievements,
-    this.distanceToBlogs,
-    this.distanceToTalks,
-    this.distanceToContact,
-  }) : super(key: key);
+  final ItemScrollController controller;
+  CustomEndDrawer({Key key, @required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,19 +34,19 @@ class CustomEndDrawer extends StatelessWidget {
               ),
               DrawerButton(
                 onPressed: () {
-                  scrollToPosition(context, distanceToSkills);
+                  scrollToIndex(2);
                 },
                 title: 'Skills',
               ),
               DrawerButton(
                 onPressed: () {
-                  scrollToPosition(context, distanceToOpenSource);
+                  scrollToIndex(3);
                 },
                 title: 'Open Source',
               ),
               DrawerButton(
                 onPressed: () {
-                  scrollToPosition(context, distanceToProject);
+                  scrollToIndex(4);
                 },
                 title: 'Projects',
               ),
@@ -72,7 +55,7 @@ class CustomEndDrawer extends StatelessWidget {
               // DrawerButton(onPressed: onTapTalks, title: 'Talks'),
               DrawerButton(
                 onPressed: () {
-                  scrollToPosition(context, distanceToContact);
+                  scrollToIndex(5);
                 },
                 title: 'Contact Me',
               ),
@@ -83,10 +66,8 @@ class CustomEndDrawer extends StatelessWidget {
     );
   }
 
-  void scrollToPosition(BuildContext context, double distance) {
-    controller.animateTo(distance,
-        duration: Duration(milliseconds: 500), curve: Curves.easeIn);
-    Navigator.of(context).pop();
+  void scrollToIndex(int index) {
+    controller.scrollTo(index: index, duration: Duration(seconds: 1));
   }
 }
 

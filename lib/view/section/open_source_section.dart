@@ -1,14 +1,13 @@
-import 'package:devfolio/custom_widgets/github_repo_card.dart';
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:devfolio/utilities/responsive.dart';
+import 'package:devfolio/view/custom_widgets/github_repo_card.dart';
 import 'package:flutter/material.dart';
 
 class OpenSourceSection extends StatelessWidget {
   final List _githubProjects = [
     {
       'repoName': 'DevFolio',
-      'repoDescription':
-          'Responsive, robust, reusable devfolio built with flutter',
+      'repoDescription': 'Responsive, robust, reusable devfolio built with flutter',
       'language': 'Dart',
       'framework': 'Flutter',
       'repoUrl': 'https://github.com/alirzadev/Dev-Folio',
@@ -36,12 +35,10 @@ class OpenSourceSection extends StatelessWidget {
     },
     {
       'repoName': 'Design-102',
-      'repoDescription':
-          'Cool, minimalistic sliding screens UI for HacktoberFest\'20',
+      'repoDescription': 'Cool, minimalistic sliding screens UI for HacktoberFest\'20',
       'language': 'Dart',
       'framework': 'Flutter',
-      'repoUrl':
-          'https://github.com/alirzadev/flutter-projects/tree/master/design_102',
+      'repoUrl': 'https://github.com/alirzadev/flutter-projects/tree/master/design_102',
     },
   ];
 
@@ -57,9 +54,7 @@ class OpenSourceSection extends StatelessWidget {
         vertical: 50,
       ),
       child: Column(
-        crossAxisAlignment: isMobile(context)
-            ? CrossAxisAlignment.center
-            : CrossAxisAlignment.start,
+        crossAxisAlignment: isMobile(context) ? CrossAxisAlignment.center : CrossAxisAlignment.start,
         children: [
           if (!isMobile(context))
             Text(

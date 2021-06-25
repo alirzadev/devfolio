@@ -1,30 +1,13 @@
-import 'package:devfolio/custom_widgets/nav_bar_button.dart';
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:devfolio/utilities/responsive.dart';
+import 'package:devfolio/view/custom_widgets/nav_bar_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class NavBar extends StatelessWidget {
-  final ScrollController controller;
-  final double distanceToSkills;
-  final double distanceToOpenSource;
-  final double distanceToProject;
-  final double distanceToAchievements;
-  final double distanceToBlogs;
-  final double distanceToTalks;
-  final double distanceToContact;
-
-  NavBar({
-    Key key,
-    this.controller,
-    this.distanceToSkills,
-    this.distanceToOpenSource,
-    this.distanceToProject,
-    this.distanceToAchievements,
-    this.distanceToBlogs,
-    this.distanceToTalks,
-    this.distanceToContact,
-  }) : super(key: key);
+  final ItemScrollController controller;
+  NavBar({Key key, @required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,17 +32,17 @@ class NavBar extends StatelessWidget {
               children: [
                 NavBarButton(
                     onPressed: () {
-                      scrollToPosition(distanceToSkills);
+                      scrollToIndex(2);
                     },
                     title: 'Skills'),
                 NavBarButton(
                     onPressed: () {
-                      scrollToPosition(distanceToOpenSource);
+                      scrollToIndex(3);
                     },
                     title: 'Open Source'),
                 NavBarButton(
                     onPressed: () {
-                      scrollToPosition(distanceToProject);
+                      scrollToIndex(4);
                     },
                     title: 'Projects'),
                 // NavBarButton(
@@ -68,7 +51,7 @@ class NavBar extends StatelessWidget {
                 // NavBarButton(onPressed: onTapTalks, title: 'Talks'),
                 NavBarButton(
                     onPressed: () {
-                      scrollToPosition(distanceToContact);
+                      scrollToIndex(5);
                     },
                     title: 'Contact Me'),
               ],
@@ -87,8 +70,7 @@ class NavBar extends StatelessWidget {
     );
   }
 
-  void scrollToPosition(double distance) {
-    controller.animateTo(distance,
-        duration: Duration(milliseconds: 500), curve: Curves.easeIn);
+  void scrollToIndex(int index) {
+    controller.scrollTo(index: index, duration: Duration(seconds: 1));
   }
 }

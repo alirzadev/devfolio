@@ -16,7 +16,7 @@ class GithubRepoCard extends StatefulWidget {
     this.description,
     this.language,
     this.framework,
-    this.repoUrl,
+    @required this.repoUrl,
   }) : super(key: key);
 
   @override
@@ -94,8 +94,7 @@ class _GithubRepoCardState extends State<GithubRepoCard> {
                 left: 20,
                 child: Container(
                   height: 30,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   color: AppColors.grey,
                   child: Text(
                     '${widget.language}',
@@ -111,8 +110,7 @@ class _GithubRepoCardState extends State<GithubRepoCard> {
                 right: 20,
                 child: Container(
                   height: 30,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   color: AppColors.grey,
                   child: Text(
                     '${widget.framework}',
@@ -142,8 +140,7 @@ class CustomShape extends CustomPainter {
       ..style = PaintingStyle.fill;
 
     path..lineTo(0, size.height / 3);
-    path
-      ..quadraticBezierTo(0, size.height / 3, size.width, size.height / 2 - 10);
+    path..quadraticBezierTo(0, size.height / 3, size.width, size.height / 2 - 10);
     path..lineTo(size.width, 0);
     path..lineTo(0, 0);
     canvas.drawPath(path, paint);

@@ -1,8 +1,9 @@
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:devfolio/utilities/responsive.dart';
 import 'package:devfolio/utilities/url_launer.dart';
-import 'package:devfolio/view/homepage/componenets/social_media_icons.dart';
 import 'package:flutter/material.dart';
+
+import 'componenets/social_media_icons.dart';
 
 class ContactsSection extends StatelessWidget {
   @override

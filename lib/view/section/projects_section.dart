@@ -1,6 +1,6 @@
-import 'package:devfolio/custom_widgets/project_card.dart';
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:devfolio/utilities/responsive.dart';
+import 'package:devfolio/view/custom_widgets/project_card.dart';
 import 'package:flutter/material.dart';
 
 class ProjectsSection extends StatefulWidget {
@@ -22,9 +22,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
         vertical: 50,
       ),
       child: Column(
-        crossAxisAlignment: isMobile(context)
-            ? CrossAxisAlignment.center
-            : CrossAxisAlignment.start,
+        crossAxisAlignment: isMobile(context) ? CrossAxisAlignment.center : CrossAxisAlignment.start,
         children: [
           if (!isMobile(context))
             Text(
@@ -62,8 +60,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
             Row(
               children: [
                 ProductCard(
-                  url:
-                      'https://play.google.com/store/apps/details?id=com.flutter.klime',
+                  url: 'https://play.google.com/store/apps/details?id=com.flutter.klime',
                   image: 'assets/images/klimeAppLogo.png',
                 ),
               ],
@@ -72,8 +69,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
             Column(
               children: [
                 ProductCard(
-                  url:
-                      'https://play.google.com/store/apps/details?id=com.flutter.klime',
+                  url: 'https://play.google.com/store/apps/details?id=com.flutter.klime',
                   image: 'assets/images/klimeAppLogo.png',
                 ),
               ],

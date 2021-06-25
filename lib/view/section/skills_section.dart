@@ -1,6 +1,6 @@
-import 'package:devfolio/custom_widgets/skills_icon.dart';
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:devfolio/utilities/responsive.dart';
+import 'package:devfolio/view/custom_widgets/skills_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -9,8 +9,6 @@ class SkillsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-
     return Padding(
       padding: EdgeInsets.only(
         top: 50,
@@ -33,8 +31,7 @@ class SkillsSection extends StatelessWidget {
               if (!isMobile(context))
                 Expanded(
                   child: Container(
-                    padding:
-                        EdgeInsets.only(right: !isMobile(context) ? 20 : 0),
+                    padding: EdgeInsets.only(right: !isMobile(context) ? 20 : 0),
                     // height: height * 0.7,
                     child: Image.asset(
                       'assets/images/developerActivity.png',
@@ -44,9 +41,7 @@ class SkillsSection extends StatelessWidget {
                 ),
               Expanded(
                 child: Column(
-                  crossAxisAlignment: isMobile(context)
-                      ? CrossAxisAlignment.center
-                      : CrossAxisAlignment.start,
+                  crossAxisAlignment: isMobile(context) ? CrossAxisAlignment.center : CrossAxisAlignment.start,
                   children: [
                     if (!isMobile(context))
                       Text(
@@ -90,30 +85,17 @@ class SkillsSection extends StatelessWidget {
                           spacing: 20,
                           runSpacing: 15,
                           children: [
-                            SkillsIcon(
-                                icon: FontAwesomeIcons.html5, title: 'HTML5'),
-                            SkillsIcon(
-                                icon: FontAwesomeIcons.css3Alt, title: 'CSS3'),
-                            SkillsIcon(
-                                icon: FontAwesomeIcons.cuttlefish,
-                                title: 'C++'),
-                            SkillsIcon(
-                                icon: FontAwesomeIcons.java, title: 'Java'),
-                            SkillsIcon(
-                                icon: FontAwesomeIcons.python, title: 'Python'),
-                            SkillsIcon(
-                                icon: FontAwesomeIcons.database,
-                                title: 'MySql'),
-                            SkillsIcon(
-                                icon: FontAwesomeIcons.fire, title: 'Flutter'),
-                            SkillsIcon(
-                                icon: FontAwesomeIcons.fire, title: 'Dart'),
-                            SkillsIcon(
-                                icon: FontAwesomeIcons.fire, title: 'Firebase'),
-                            SkillsIcon(
-                                icon: FontAwesomeIcons.github, title: 'Github'),
-                            SkillsIcon(
-                                icon: FontAwesomeIcons.gitlab, title: 'Gitlab'),
+                            SkillsIcon(icon: FontAwesomeIcons.html5, title: 'HTML5'),
+                            SkillsIcon(icon: FontAwesomeIcons.css3Alt, title: 'CSS3'),
+                            SkillsIcon(icon: FontAwesomeIcons.cuttlefish, title: 'C++'),
+                            SkillsIcon(icon: FontAwesomeIcons.java, title: 'Java'),
+                            SkillsIcon(icon: FontAwesomeIcons.python, title: 'Python'),
+                            SkillsIcon(icon: FontAwesomeIcons.database, title: 'MySql'),
+                            SkillsIcon(icon: FontAwesomeIcons.fire, title: 'Flutter'),
+                            SkillsIcon(icon: FontAwesomeIcons.fire, title: 'Dart'),
+                            SkillsIcon(icon: FontAwesomeIcons.fire, title: 'Firebase'),
+                            SkillsIcon(icon: FontAwesomeIcons.github, title: 'Github'),
+                            SkillsIcon(icon: FontAwesomeIcons.gitlab, title: 'Gitlab'),
                           ],
                         ),
                       ),
@@ -123,20 +105,16 @@ class SkillsSection extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SkillsDescription(
-                          description:
-                              'Develop Responsive, Minimalistic UI & highly Scalable Flutter mobile apps.',
+                          description: 'Develop Responsive, Minimalistic UI & highly Scalable Flutter mobile apps.',
                         ),
                         SkillsDescription(
-                          description:
-                              'Integration of third party Apis and services such as Firebase.',
+                          description: 'Integration of third party Apis and services such as Firebase.',
                         ),
                         SkillsDescription(
-                          description:
-                              'Experienced in using MVC, MVVM & Stacked Model.',
+                          description: 'Experienced in using MVC, MVVM & Stacked Model.',
                         ),
                         SkillsDescription(
-                          description:
-                              'Publishing the Flutter App on Google Play Store.',
+                          description: 'Publishing the Flutter App on Google Play Store.',
                         ),
                         SkillsDescription(
                           description: 'Write Clear, Robust & Reusable code.',

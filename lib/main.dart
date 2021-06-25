@@ -1,5 +1,5 @@
 import 'package:devfolio/utilities/app_colors.dart';
-import 'package:devfolio/view/homepage/homepage.dart';
+import 'package:devfolio/view/homepage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -7,8 +7,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  static const MaterialColor primarySwatchRed =
-      MaterialColor(0xFFBE344B, const <int, Color>{500: Color(0xFFBE344B)});
+  static const MaterialColor primarySwatchRed = MaterialColor(0xFFBE344B, const <int, Color>{500: Color(0xFFBE344B)});
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +17,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Montserrat',
         primaryColor: AppColors.red,
-        primarySwatch: Theme.of(context).primaryColor,
+        // primarySwatch: Theme.of(context).primaryColor,
       ),
-      home: HomePage(),
+      home: Homepage(),
     );
   }
 }
