@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Montserrat',
         primaryColor: AppColors.red,
+        scaffoldBackgroundColor: AppColors.black,
         // primarySwatch: Theme.of(context).primaryColor,
       ),
       home: Homepage(),

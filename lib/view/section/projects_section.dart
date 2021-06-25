@@ -28,7 +28,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
             Text(
               'Projects',
               style: TextStyle(
-                color: AppColors.black,
+                color: AppColors.white,
                 letterSpacing: -2,
                 fontSize: isDesktop(context) ? 52 : 32,
               ),
@@ -38,7 +38,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
               child: Text(
                 'Projects',
                 style: TextStyle(
-                  color: AppColors.black,
+                  color: AppColors.white,
                   letterSpacing: -1,
                   fontSize: isDesktop(context) ? 52 : 32,
                 ),
@@ -50,7 +50,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
               'Flutter projects published on Play Store.',
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: AppColors.black54,
+                color: AppColors.white.withOpacity(0.5),
                 fontSize: 16,
               ),
             ),

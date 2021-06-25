@@ -1,5 +1,4 @@
 import 'package:devfolio/controller/homepage.dart';
-import 'package:devfolio/utilities/app_colors.dart';
 import 'package:devfolio/utilities/responsive.dart';
 import 'package:devfolio/view/section/componenets/custom_end_drawer.dart';
 import 'package:devfolio/view/section/componenets/nav_bar.dart';
@@ -15,7 +14,6 @@ class Homepage extends StatelessWidget {
     return GetBuilder<HomepageController>(
       init: HomepageController(),
       builder: (_) => Scaffold(
-        backgroundColor: AppColors.white,
         endDrawer: CustomEndDrawer(controller: _.itemScrollController),
         body: ScrollablePositionedList.builder(
           itemCount: _.sections.length,
@@ -34,7 +32,7 @@ class Homepage extends StatelessWidget {
             hoverColor: Colors.transparent,
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
-            icon: Icon(Icons.arrow_circle_up, size: 40.0, color: isMobile(context) ? Colors.black12 : Colors.black26),
+            icon: Icon(Icons.arrow_circle_up, size: 40.0, color: isMobile(context) ? Colors.white12 : Colors.white24),
           ),
         ),
       ),

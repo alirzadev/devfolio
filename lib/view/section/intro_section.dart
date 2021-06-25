@@ -1,5 +1,6 @@
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:devfolio/utilities/responsive.dart';
+import 'package:devfolio/view/custom_widgets/skills_icon.dart';
 import 'package:flutter/material.dart';
 
 import 'componenets/social_media_icons.dart';
@@ -7,7 +8,6 @@ import 'componenets/social_media_icons.dart';
 class IntroSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: !isMobile(context)
@@ -44,31 +44,14 @@ class IntroSection extends StatelessWidget {
                       textAlign: isMobile(context) ? TextAlign.center : TextAlign.start,
                       style: TextStyle(
                         height: !isDesktop(context) ? 1.2 : 1.5,
-                        color: AppColors.black54,
+                        color: AppColors.white.withOpacity(0.65),
                         fontSize: isDesktop(context) ? 20 : 16,
                       ),
                     ),
                     SizedBox(height: !isDesktop(context) ? 15 : 25),
                     SocialMediaIcons(isContactSection: false),
                     SizedBox(height: !isDesktop(context) ? 40 : 55),
-                    RaisedButton(
-                      onPressed: () {},
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(color: AppColors.red),
-                        borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                      ),
-                      color: AppColors.white,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: !isDesktop(context) ? 14.0 : 18.0,
-                          vertical: !isDesktop(context) ? 10.0 : 14.0,
-                        ),
-                        child: Text(
-                          'RESUME',
-                          style: TextStyle(color: AppColors.red, fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                    ),
+                    CustomButton(onPressed: () {}, title: 'RESUME'),
                   ],
                 ),
               ),

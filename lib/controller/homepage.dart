@@ -1,6 +1,5 @@
 import 'package:devfolio/view/section/contacts_section.dart';
 import 'package:devfolio/view/section/intro_section.dart';
-import 'package:devfolio/view/section/open_source_section.dart';
 import 'package:devfolio/view/section/projects_section.dart';
 import 'package:devfolio/view/section/skills_section.dart';
 import 'package:get/get.dart';
@@ -12,6 +11,7 @@ class HomepageController extends GetxController {
 
   List sections = [
     {}, // Index '0' should be left empty so navbar could be displayed in its place
+
     {
       'widget': IntroSection(),
       'index': 1,
@@ -20,6 +20,7 @@ class HomepageController extends GetxController {
       'widget': SkillsSection(),
       'index': 2,
     },
+
     {
       'widget': OpenSourceSection(),
       'index': 3,

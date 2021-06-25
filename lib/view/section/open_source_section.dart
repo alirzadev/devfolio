@@ -3,7 +3,12 @@ import 'package:devfolio/utilities/responsive.dart';
 import 'package:devfolio/view/custom_widgets/github_repo_card.dart';
 import 'package:flutter/material.dart';
 
-class OpenSourceSection extends StatelessWidget {
+class OpenSourceSection extends StatefulWidget {
+  @override
+  _OpenSourceSectionState createState() => _OpenSourceSectionState();
+}
+
+class _OpenSourceSectionState extends State<OpenSourceSection> {
   final List _githubProjects = [
     {
       'repoName': 'DevFolio',
@@ -42,6 +47,24 @@ class OpenSourceSection extends StatelessWidget {
     },
   ];
 
+  List<Widget> widgets = [];
+
+  List<Widget> createWidgets() {
+    List<Widget> temp = [];
+    for (int i = 0; i < _githubProjects.length; i++) {
+      temp.add(
+        GithubRepoCard(repos: _githubProjects[i]),
+      );
+    }
+    return temp;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    widgets = createWidgets();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -60,7 +83,7 @@ class OpenSourceSection extends StatelessWidget {
             Text(
               'Open Source',
               style: TextStyle(
-                color: AppColors.black,
+                color: AppColors.white,
                 letterSpacing: -2,
                 fontSize: isDesktop(context) ? 52 : 32,
               ),
@@ -70,7 +93,7 @@ class OpenSourceSection extends StatelessWidget {
               child: Text(
                 'Open Source',
                 style: TextStyle(
-                  color: AppColors.black,
+                  color: AppColors.white,
                   letterSpacing: -1,
                   fontSize: isDesktop(context) ? 52 : 32,
                 ),
@@ -82,28 +105,39 @@ class OpenSourceSection extends StatelessWidget {
               'Some GitHub repositories of Flutter projects.',
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: AppColors.black54,
+                color: AppColors.white.withOpacity(0.5),
                 fontSize: 16,
               ),
             ),
           ),
           SizedBox(height: isDesktop(context) ? 55 : 45),
-          Container(
-            height: 220,
-            child: ListView.builder(
-              itemCount: _githubProjects.length,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (BuildContext context, int index) {
-                return GithubRepoCard(
-                  name: _githubProjects[index]['repoName'],
-                  description: _githubProjects[index]['repoDescription'],
-                  language: _githubProjects[index]['language'],
-                  framework: _githubProjects[index]['framework'],
-                  repoUrl: _githubProjects[index]['repoUrl'],
-                );
-              },
+          Center(
+            child: Wrap(
+              runSpacing: !isMobile(context) ? 25.0 : 15.0,
+              children: widgets,
             ),
-          )
+          ),
+          // Container(
+          //   height: 230.0,
+          //   child: ListView.builder(
+          //     primary: false,
+          //     shrinkWrap: true,
+          //     itemCount: _githubProjects.length,
+          //     scrollDirection: isMobile(context) ? Axis.vertical : Axis.horizontal,
+          //     itemBuilder: (BuildContext context, int index) {
+          //       return GithubRepoCard(
+          //         repos: _githubProjects[index],
+          //       );
+          //       // return GithubRepoCard(
+          //       //   name: _githubProjects[index]['repoName'],
+          //       //   description: _githubProjects[index]['repoDescription'],
+          //       //   language: _githubProjects[index]['language'],
+          //       //   framework: _githubProjects[index]['framework'],
+          //       //   repoUrl: _githubProjects[index]['repoUrl'],
+          //       // );
+          //     },
+          //   ),
+          // )
         ],
       ),
     );

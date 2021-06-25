@@ -32,7 +32,7 @@ class ContactsSection extends StatelessWidget {
           Text(
             'Contact Me',
             style: TextStyle(
-              color: AppColors.black,
+              color: AppColors.white,
               letterSpacing: -2,
               fontSize: isDesktop(context) ? 52 : 32,
             ),
@@ -43,7 +43,7 @@ class ContactsSection extends StatelessWidget {
               'Discuss a project or just want to say hi? My inbox is open for all.',
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: AppColors.black54,
+                color: AppColors.white.withOpacity(0.5),
                 fontSize: 16,
               ),
             ),
@@ -52,7 +52,7 @@ class ContactsSection extends StatelessWidget {
           Text(
             '+92-3317402528',
             style: TextStyle(
-              color: AppColors.black54,
+              color: AppColors.white.withOpacity(0.75),
               fontSize: 16,
             ),
           ),
@@ -60,7 +60,7 @@ class ContactsSection extends StatelessWidget {
           Text(
             'mraliryu@gmail.com',
             style: TextStyle(
-              color: AppColors.black54,
+              color: AppColors.white.withOpacity(0.75),
               fontSize: 16,
             ),
           ),
@@ -74,7 +74,7 @@ class ContactsSection extends StatelessWidget {
                 Text(
                   'Made with ',
                   style: TextStyle(
-                    color: AppColors.black54,
+                    color: AppColors.white.withOpacity(0.75),
                     fontSize: 14,
                   ),
                 ),
@@ -94,7 +94,7 @@ class ContactsSection extends StatelessWidget {
                 Text(
                   '💙 by Ali Raza',
                   style: TextStyle(
-                    color: AppColors.black54,
+                    color: AppColors.white.withOpacity(0.75),
                     fontSize: 14,
                   ),
                 ),
@@ -109,7 +109,7 @@ class ContactsSection extends StatelessWidget {
             child: Text(
               'Theme by Saad Pasta',
               style: TextStyle(
-                color: AppColors.black54,
+                color: AppColors.white.withOpacity(0.75),
                 fontSize: 14,
                 decoration: TextDecoration.underline,
               ),

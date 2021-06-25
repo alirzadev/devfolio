@@ -15,7 +15,7 @@ class CustomEndDrawer extends StatelessWidget {
       height: height,
       child: Drawer(
         child: Container(
-          color: AppColors.white,
+          color: AppColors.black,
           padding: const EdgeInsets.only(right: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -28,7 +28,7 @@ class CustomEndDrawer extends StatelessWidget {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: Icon(Icons.clear, color: AppColors.black54),
+                    icon: Icon(Icons.clear, color: AppColors.white.withOpacity(0.75)),
                   ),
                 ),
               ),
@@ -83,8 +83,8 @@ class DrawerButton extends StatelessWidget {
       onPressed: onPressed,
       height: 50,
       splashColor: Colors.transparent,
-      color: AppColors.white,
-      textColor: AppColors.black54,
+      color: AppColors.black,
+      textColor: AppColors.white.withOpacity(0.75),
       child: Text(
         '$title',
         style: TextStyle(fontSize: 16),

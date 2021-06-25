@@ -12,7 +12,7 @@ class NavBarButton extends StatefulWidget {
 }
 
 class _NavBarButtonState extends State<NavBarButton> {
-  Color btnColor = AppColors.white;
+  Color btnColor = AppColors.black;
   int _enterCounter = 0;
   int _exitCounter = 0;
   double x = 0.0;
@@ -26,14 +26,14 @@ class _NavBarButtonState extends State<NavBarButton> {
 
   void _incrementExit(PointerEvent details) {
     setState(() {
-      btnColor = AppColors.white;
+      btnColor = AppColors.black;
       this._exitCounter++;
     });
   }
 
   void _updateLocation(PointerEvent details) {
     setState(() {
-      btnColor = AppColors.grey.withOpacity(.25);
+      btnColor = AppColors.white.withOpacity(.25);
       x = details.position.dx;
       y = details.position.dy;
     });
@@ -55,7 +55,7 @@ class _NavBarButtonState extends State<NavBarButton> {
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Text(
             '${widget.title}',
-            style: TextStyle(fontSize: 16),
+            style: TextStyle(fontSize: 16.0, color: AppColors.white.withOpacity(0.75)),
           ),
         ),
       ),

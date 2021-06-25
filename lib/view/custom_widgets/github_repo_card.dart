@@ -1,23 +1,15 @@
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:devfolio/utilities/responsive.dart';
 import 'package:devfolio/utilities/url_launer.dart';
+import 'package:devfolio/view/custom_widgets/skills_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class GithubRepoCard extends StatefulWidget {
-  final String name;
-  final String description;
-  final String language;
-  final String framework;
-  final String repoUrl;
+  final Map repos;
 
-  GithubRepoCard({
-    Key key,
-    this.name,
-    this.description,
-    this.language,
-    this.framework,
-    @required this.repoUrl,
-  }) : super(key: key);
+  GithubRepoCard({Key key, @required this.repos}) : super(key: key);
 
   @override
   _GithubRepoCardState createState() => _GithubRepoCardState();
@@ -29,11 +21,11 @@ class _GithubRepoCardState extends State<GithubRepoCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: !isMobile(context) ? 40 : 15),
+      padding: EdgeInsets.only(right: !isMobile(context) ? 25.0 : 15.0),
       child: InkWell(
         onTap: () {
           //Launch RepoUrl
-          UrlLauncher(url: widget.repoUrl).launchUrl();
+          UrlLauncher(url: widget.repos['repoUrl']).launchUrl();
         },
         onHover: (isHovering) {
           if (isHovering) {
@@ -46,79 +38,60 @@ class _GithubRepoCardState extends State<GithubRepoCard> {
             });
           }
         },
-        child: Card(
-          elevation: elevation,
-          child: Stack(
+        child: Container(
+          padding: const EdgeInsets.all(15.0),
+          width: 230.0,
+          height: 230.0,
+          color: AppColors.white.withOpacity(0.15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                width: 250,
-                height: 300,
-                decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.red.withOpacity(.75)),
-                ),
-                child: CustomPaint(
-                  painter: CustomShape(),
-                ),
-              ),
-              Container(
-                width: 250,
-                padding: const EdgeInsets.only(top: 15, left: 20),
-                child: Text(
-                  '${widget.name}',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: AppColors.white,
-                    fontSize: 28,
-                  ),
+              Text(
+                widget.repos['repoName'],
+                maxLines: 4,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 16.0,
+                  color: AppColors.white.withOpacity(0.75),
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              Positioned(
-                top: 105,
-                child: Container(
-                  width: 250,
-                  padding: const EdgeInsets.only(left: 20, right: 20),
-                  child: Text(
-                    '${widget.description}',
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      color: AppColors.black54,
-                      fontSize: 16,
+              SizedBox(height: 10.0),
+              Container(color: AppColors.red, width: Get.height / (2.75 * 2.5), height: 5.0),
+              SizedBox(height: 15.0),
+              Text(
+                widget.repos['repoDescription'],
+                maxLines: 4,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  color: AppColors.white.withOpacity(0.75),
+                ),
+              ),
+              SizedBox(height: 10.0),
+              RichText(
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                text: TextSpan(
+                  text: 'Tech: ',
+                  style: TextStyle(color: AppColors.red, fontWeight: FontWeight.w900, height: 1.2),
+                  children: [
+                    TextSpan(
+                      text: '${widget.repos['language']}, ${widget.repos['framework']}',
+                      style: TextStyle(color: AppColors.white.withOpacity(0.75), fontWeight: FontWeight.w200),
                     ),
-                  ),
+                  ],
                 ),
               ),
-              Positioned(
-                bottom: 15,
-                left: 20,
-                child: Container(
-                  height: 30,
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  color: AppColors.grey,
-                  child: Text(
-                    '${widget.language}',
-                    style: TextStyle(
-                      color: AppColors.white,
-                      // fontSize: 16,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                bottom: 15,
-                right: 20,
-                child: Container(
-                  height: 30,
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  color: AppColors.grey,
-                  child: Text(
-                    '${widget.framework}',
-                    style: TextStyle(
-                      color: AppColors.white,
-                      fontSize: 16,
-                    ),
-                  ),
+              Spacer(),
+              Align(
+                alignment: Alignment.centerRight,
+                child: CustomButton(
+                  onPressed: () {
+                    launch(widget.repos['repoUrl']);
+                  },
+                  title: 'Source Code',
+                  btnColor: AppColors.black,
+                  textColor: AppColors.red,
                 ),
               ),
             ],

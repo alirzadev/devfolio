@@ -1,6 +1,44 @@
 import 'package:devfolio/utilities/app_colors.dart';
+import 'package:devfolio/utilities/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+class CustomButton extends StatelessWidget {
+  final String title;
+  final Color btnColor;
+  final Color textColor;
+  final VoidCallback onPressed;
+
+  const CustomButton({
+    Key key,
+    @required this.title,
+    this.btnColor = Colors.transparent,
+    this.textColor = AppColors.red,
+    this.onPressed,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return RaisedButton(
+      onPressed: onPressed,
+      shape: RoundedRectangleBorder(
+        side: BorderSide(color: textColor),
+        // borderRadius: BorderRadius.all(Radius.circular(50.0)),
+      ),
+      color: btnColor,
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: !isDesktop(context) ? 14.0 : 18.0,
+          vertical: !isDesktop(context) ? 10.0 : 14.0,
+        ),
+        child: Text(
+          title,
+          style: TextStyle(color: textColor, fontWeight: FontWeight.w700),
+        ),
+      ),
+    );
+  }
+}
 
 class SkillsIcon extends StatefulWidget {
   final IconData icon;
@@ -13,7 +51,7 @@ class SkillsIcon extends StatefulWidget {
 }
 
 class _SkillsIconState extends State<SkillsIcon> {
-  Color iconColor = AppColors.grey;
+  Color iconColor = AppColors.white.withOpacity(0.75);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +64,7 @@ class _SkillsIconState extends State<SkillsIcon> {
           });
         } else {
           setState(() {
-            iconColor = AppColors.grey;
+            iconColor = AppColors.white.withOpacity(0.75);
           });
         }
       },
@@ -43,7 +81,7 @@ class _SkillsIconState extends State<SkillsIcon> {
           SizedBox(height: 10),
           Text(
             '${widget.title}',
-            style: TextStyle(color: AppColors.grey, fontSize: 12),
+            style: TextStyle(color: AppColors.white.withOpacity(0.75), fontSize: 12),
           ),
         ],
       ),

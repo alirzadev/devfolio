@@ -47,7 +47,7 @@ class SkillsSection extends StatelessWidget {
                       Text(
                         'Skills',
                         style: TextStyle(
-                          color: AppColors.black,
+                          color: AppColors.white,
                           letterSpacing: -2,
                           fontSize: isDesktop(context) ? 52 : 32,
                         ),
@@ -57,7 +57,7 @@ class SkillsSection extends StatelessWidget {
                         child: Text(
                           'Skills',
                           style: TextStyle(
-                            color: AppColors.black,
+                            color: AppColors.white,
                             letterSpacing: -1,
                             fontSize: isDesktop(context) ? 52 : 32,
                           ),
@@ -69,7 +69,7 @@ class SkillsSection extends StatelessWidget {
                         'A bit insane, lazy yet passionate developer who loves Flutter.',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: AppColors.black54,
+                          color: AppColors.white.withOpacity(0.5),
                           fontSize: 16,
                         ),
                       ),
@@ -158,14 +158,14 @@ class SkillsDescription extends StatelessWidget {
             Icon(
               Icons.bolt,
               size: 20,
-              color: AppColors.orangeAccent.withOpacity(.75),
+              color: AppColors.orangeAccent.withOpacity(0.75),
             ),
             Expanded(
               child: Container(
                 child: Text(
                   '$description',
                   style: TextStyle(
-                    color: AppColors.black54,
+                    color: AppColors.white.withOpacity(0.75),
                     fontSize: 16,
                   ),
                 ),

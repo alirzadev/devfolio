@@ -39,6 +39,10 @@ flutter:
       fonts:
         - asset: fonts/Challina.otf
 
+    - family: Agustina
+      fonts:
+        - asset: fonts/Agustina.otf
+
     - family: Montserrat
       fonts:
         - asset: fonts/Montserrat-Regular.otf
