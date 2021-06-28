@@ -96,6 +96,7 @@ class _GithubRepoCardState extends State<GithubRepoCard> {
                   onPressed: () {
                     launch(widget.repos['repoUrl']);
                   },
+                  lessPadding: true,
                   title: 'Source Code',
                   btnColor: AppColors.black,
                   textColor: AppColors.red,

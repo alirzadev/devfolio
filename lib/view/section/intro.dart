@@ -2,6 +2,7 @@ import 'package:devfolio/utilities/app_colors.dart';
 import 'package:devfolio/utilities/responsive.dart';
 import 'package:devfolio/view/custom_widgets/skills_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 import 'componenets/social_media_icons.dart';
@@ -103,3 +104,5 @@ class IntroSection extends StatelessWidget {
     );
   }
 }
+
+class IntroSectionController extends GetxController {}

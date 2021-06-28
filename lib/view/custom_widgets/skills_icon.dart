@@ -7,6 +7,7 @@ class CustomButton extends StatelessWidget {
   final String title;
   final Color btnColor;
   final Color textColor;
+  final bool lessPadding;
   final VoidCallback onPressed;
 
   const CustomButton({
@@ -14,12 +15,14 @@ class CustomButton extends StatelessWidget {
     @required this.title,
     this.btnColor = Colors.transparent,
     this.textColor = AppColors.red,
+    this.lessPadding = false,
     this.onPressed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
+      elevation: lessPadding ? 0.0 : 1.0,
       onPressed: onPressed,
       shape: RoundedRectangleBorder(
         side: BorderSide(color: textColor),
@@ -28,8 +31,16 @@ class CustomButton extends StatelessWidget {
       color: btnColor,
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: !isDesktop(context) ? 14.0 : 18.0,
-          vertical: !isDesktop(context) ? 10.0 : 14.0,
+          horizontal: lessPadding
+              ? 5.0
+              : !isDesktop(context)
+                  ? 14.0
+                  : 18.0,
+          vertical: lessPadding
+              ? 7.5
+              : !isDesktop(context)
+                  ? 10.0
+                  : 14.0,
         ),
         child: Text(
           title,

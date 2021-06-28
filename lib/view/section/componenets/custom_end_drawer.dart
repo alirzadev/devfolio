@@ -68,9 +68,8 @@ class CustomEndDrawer extends StatelessWidget {
   }
 
   void scrollToIndex(int index) {
-    Get.back();
-
     controller.scrollTo(index: index, duration: Duration(seconds: 1));
+    Get.back();
   }
 }
 
