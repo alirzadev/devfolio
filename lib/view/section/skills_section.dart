@@ -3,6 +3,7 @@ import 'package:devfolio/utilities/responsive.dart';
 import 'package:devfolio/view/custom_widgets/skills_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lottie/lottie.dart';
 
 class SkillsSection extends StatelessWidget {
   SkillsSection({Key key}) : super(key: key);
@@ -33,10 +34,11 @@ class SkillsSection extends StatelessWidget {
                   child: Container(
                     padding: EdgeInsets.only(right: !isMobile(context) ? 20 : 0),
                     // height: height * 0.7,
-                    child: Image.asset(
-                      'assets/images/developerActivity.png',
-                      fit: BoxFit.contain,
-                    ),
+                    // child: Image.asset(
+                    //   'assets/images/developerActivity.png',
+                    //   fit: BoxFit.contain,
+                    // ),
+                    child: Lottie.asset('assets/bot.json', repeat: true),
                   ),
                 ),
               Expanded(
@@ -130,11 +132,12 @@ class SkillsSection extends StatelessWidget {
             Container(
               padding: const EdgeInsets.only(top: 30),
               // height: height * 0.3,
-              child: Image.asset(
-                'assets/images/developerActivity.png',
-                fit: BoxFit.contain,
-              ),
+              // child: Image.asset(
+              //   'assets/images/developerActivity.png',
+              //   fit: BoxFit.contain,
+              // ),
               // child: Text('Image or Illustration'),
+              child: Lottie.asset('assets/bot.json', repeat: true),
             ),
         ],
       ),

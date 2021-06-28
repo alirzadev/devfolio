@@ -23,7 +23,7 @@ class Homepage extends StatelessWidget {
               index == 0 ? NavBar(controller: _.itemScrollController) : _.sections[index]['widget'],
         ),
         floatingActionButton: Padding(
-          padding: const EdgeInsets.only(right: 10.0, bottom: 10.0),
+          padding: EdgeInsets.only(right: isMobile(context) ? 0.0 : 10.0, bottom: isMobile(context) ? 0.0 : 10.0),
           child: IconButton(
             onPressed: () {
               _.itemScrollController.scrollTo(index: 0, duration: Duration(seconds: 1));

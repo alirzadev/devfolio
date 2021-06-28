@@ -57,11 +57,18 @@ class _GithubRepoCardState extends State<GithubRepoCard> {
                 ),
               ),
               SizedBox(height: 10.0),
-              Container(color: AppColors.red, width: Get.height / (2.75 * 2.5), height: 5.0),
+              Container(
+                width: Get.height / (2.75 * 2.5),
+                height: 5.0,
+                decoration: BoxDecoration(
+                  color: AppColors.red,
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                ),
+              ),
               SizedBox(height: 15.0),
               Text(
                 widget.repos['repoDescription'],
-                maxLines: 4,
+                maxLines: 3,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: AppColors.white.withOpacity(0.75),

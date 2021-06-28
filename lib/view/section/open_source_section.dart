@@ -117,27 +117,6 @@ class _OpenSourceSectionState extends State<OpenSourceSection> {
               children: widgets,
             ),
           ),
-          // Container(
-          //   height: 230.0,
-          //   child: ListView.builder(
-          //     primary: false,
-          //     shrinkWrap: true,
-          //     itemCount: _githubProjects.length,
-          //     scrollDirection: isMobile(context) ? Axis.vertical : Axis.horizontal,
-          //     itemBuilder: (BuildContext context, int index) {
-          //       return GithubRepoCard(
-          //         repos: _githubProjects[index],
-          //       );
-          //       // return GithubRepoCard(
-          //       //   name: _githubProjects[index]['repoName'],
-          //       //   description: _githubProjects[index]['repoDescription'],
-          //       //   language: _githubProjects[index]['language'],
-          //       //   framework: _githubProjects[index]['framework'],
-          //       //   repoUrl: _githubProjects[index]['repoUrl'],
-          //       // );
-          //     },
-          //   ),
-          // )
         ],
       ),
     );

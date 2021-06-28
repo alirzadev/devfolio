@@ -1,5 +1,6 @@
 import 'package:devfolio/view/section/contacts_section.dart';
 import 'package:devfolio/view/section/intro_section.dart';
+import 'package:devfolio/view/section/open_source_section.dart';
 import 'package:devfolio/view/section/projects_section.dart';
 import 'package:devfolio/view/section/skills_section.dart';
 import 'package:get/get.dart';

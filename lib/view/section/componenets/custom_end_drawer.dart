@@ -1,5 +1,6 @@
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class CustomEndDrawer extends StatelessWidget {
@@ -67,6 +68,8 @@ class CustomEndDrawer extends StatelessWidget {
   }
 
   void scrollToIndex(int index) {
+    Get.back();
+
     controller.scrollTo(index: index, duration: Duration(seconds: 1));
   }
 }
