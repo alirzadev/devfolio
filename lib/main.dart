@@ -1,6 +1,7 @@
 import 'package:devfolio/utilities/app_colors.dart';
-import 'package:devfolio/view/homepage.dart';
 import 'package:flutter/material.dart';
+
+import 'view/splash.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.black,
         // primarySwatch: Theme.of(context).primaryColor,
       ),
-      home: Homepage(),
+      home: SplashScreen(),
     );
   }
 }

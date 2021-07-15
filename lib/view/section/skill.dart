@@ -132,12 +132,12 @@ class SkillsSection extends StatelessWidget {
             Container(
               padding: const EdgeInsets.only(top: 30),
               // height: height * 0.3,
-              // child: Image.asset(
-              //   'assets/images/developerActivity.png',
-              //   fit: BoxFit.contain,
-              // ),
+              child: Image.asset(
+                'assets/images/developerActivity.png',
+                fit: BoxFit.contain,
+              ),
               // child: Text('Image or Illustration'),
-              child: Lottie.asset('assets/bot.json', repeat: true),
+              // child: Lottie.asset('assets/bot.json', repeat: true),
             ),
         ],
       ),

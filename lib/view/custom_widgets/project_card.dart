@@ -1,67 +1,65 @@
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:devfolio/utilities/responsive.dart';
-import 'package:devfolio/utilities/url_launer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:get/get.dart';
 
-class ProductCard extends StatefulWidget {
+class ProjectCard extends StatelessWidget {
+  final String name;
+  final String description;
   final String image;
-  final String url;
 
-  ProductCard({Key key, @required this.image, @required this.url}) : super(key: key);
-
-  @override
-  _ProductCardState createState() => _ProductCardState();
-}
-
-class _ProductCardState extends State<ProductCard> {
-  double spreadRadius = 2.0;
+  ProjectCard({this.name, this.description, this.image});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        right: !isMobile(context) ? 40 : 0,
-        bottom: isMobile(context) ? 30 : 0,
-      ),
-      child: InkWell(
-        onTap: () {
-          //launchUrl
-          UrlLauncher(url: widget.url).launchUrl();
-        },
-        onHover: (isHovering) {
-          if (isHovering) {
-            setState(() {
-              spreadRadius = 4.0;
-            });
-          } else {
-            setState(() {
-              spreadRadius = 2.0;
-            });
-          }
-        },
-        child: Container(
-          width: 220,
-          height: 220,
-          padding: const EdgeInsets.all(25),
-          decoration: BoxDecoration(
-            color: AppColors.white,
-            border: Border.all(color: AppColors.red.withOpacity(.75)),
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.grey.withOpacity(.25),
-                spreadRadius: spreadRadius,
-                blurRadius: 10,
-                offset: Offset(0, 1),
-              ),
-            ],
-          ),
-          child: Center(
-            child: Image.asset(
-              widget.image,
-              fit: BoxFit.contain,
+    return Container(
+      padding: EdgeInsets.all(!isMobile(context) ? 20.0 : 15.0),
+      width: !isMobile(context) ? Get.width / 3 : Get.width / 1.25,
+      height: !isMobile(context) ? 2 * Get.width / 9 : 2 * (Get.width / 3.75),
+      color: AppColors.white.withOpacity(0.15),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Klime',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: AppColors.white.withOpacity(0.75),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 10.0),
+                Expanded(
+                  child: Container(
+                    child: SingleChildScrollView(
+                      primary: false,
+                      child: Text(
+                        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.',
+                        // overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: AppColors.white.withOpacity(0.75),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
-        ),
+          SizedBox(width: 15.0),
+          Container(
+            height: !isMobile(context) ? 2 * Get.width / 9 : 2 * (Get.width / 3.75),
+            color: AppColors.grey,
+            child: Image.asset('assets/images/klimeHome.jpg', fit: BoxFit.fitHeight),
+          ),
+        ],
       ),
     );
   }

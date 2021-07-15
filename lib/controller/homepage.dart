@@ -26,6 +26,7 @@ class HomepageController extends GetxController {
       'widget': OpenSourceSection(),
       'index': 3,
     },
+
     {
       'widget': ProjectsSection(),
       'index': 4,

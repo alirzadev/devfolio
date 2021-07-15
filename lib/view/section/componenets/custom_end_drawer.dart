@@ -1,6 +1,5 @@
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class CustomEndDrawer extends StatelessWidget {
@@ -27,7 +26,7 @@ class CustomEndDrawer extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: IconButton(
                     onPressed: () {
-                      Navigator.pop(context);
+                      Navigator.of(context).pop();
                     },
                     icon: Icon(Icons.clear, color: AppColors.white.withOpacity(0.75)),
                   ),
@@ -35,19 +34,19 @@ class CustomEndDrawer extends StatelessWidget {
               ),
               DrawerButton(
                 onPressed: () {
-                  scrollToIndex(2);
+                  scrollToIndex(context, 2);
                 },
                 title: 'Skills',
               ),
               DrawerButton(
                 onPressed: () {
-                  scrollToIndex(3);
+                  scrollToIndex(context, 3);
                 },
                 title: 'Open Source',
               ),
               DrawerButton(
                 onPressed: () {
-                  scrollToIndex(4);
+                  scrollToIndex(context, 4);
                 },
                 title: 'Projects',
               ),
@@ -56,7 +55,7 @@ class CustomEndDrawer extends StatelessWidget {
               // DrawerButton(onPressed: onTapTalks, title: 'Talks'),
               DrawerButton(
                 onPressed: () {
-                  scrollToIndex(5);
+                  scrollToIndex(context, 5);
                 },
                 title: 'Contact Me',
               ),
@@ -67,9 +66,9 @@ class CustomEndDrawer extends StatelessWidget {
     );
   }
 
-  void scrollToIndex(int index) {
+  void scrollToIndex(BuildContext context, int index) {
     controller.scrollTo(index: index, duration: Duration(seconds: 1));
-    Get.back();
+    Navigator.of(context).pop();
   }
 }
 

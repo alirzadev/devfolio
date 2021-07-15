@@ -49,7 +49,7 @@ class IntroSection extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(right: isDesktop(context) ? 0.0 : 0.0),
                       child: Text(
-                        'Former Google\'s DSC Founder 🔥 | Open Source Contributor 🐥 | Flutter 💙',
+                        'Former Google\'s DSC Founder | Open Source Contributor | Flutter',
                         textAlign: isMobile(context) ? TextAlign.center : TextAlign.start,
                         style: TextStyle(
                           height: isMobile(context) ? 1.3 : 1.5,
@@ -91,13 +91,13 @@ class IntroSection extends StatelessWidget {
             Container(
               // width: width/3,
               // height: height * 0.3,
-              // padding: const EdgeInsets.only(top: 30),
-              // child: Image.asset(
-              //   'assets/images/manOnTable.png',
-              //   fit: BoxFit.contain,
-              // ),
+              padding: const EdgeInsets.only(top: 30),
+              child: Image.asset(
+                'assets/images/manOnTable.png',
+                fit: BoxFit.contain,
+              ),
               // child: Text('Image or Illustration'),
-              child: Lottie.asset('assets/devices01.json', repeat: true),
+              // child: Lottie.asset('assets/devices01.json', repeat: true),
             ),
         ],
       ),

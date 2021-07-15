@@ -1,6 +1,7 @@
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:devfolio/utilities/responsive.dart';
 import 'package:devfolio/view/custom_widgets/project_card.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ProjectsSection extends StatefulWidget {
@@ -47,7 +48,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
           SizedBox(height: isMobile(context) ? 5 : 15),
           Container(
             child: Text(
-              'Flutter projects published on Play Store.',
+              'Professional Flutter projects done for clients.',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: AppColors.white.withOpacity(0.5),
@@ -58,20 +59,16 @@ class _ProjectsSectionState extends State<ProjectsSection> {
           SizedBox(height: isDesktop(context) ? 55 : 45),
           if (!isMobile(context))
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ProductCard(
-                  url: 'https://play.google.com/store/apps/details?id=com.flutter.klime',
-                  image: 'assets/images/klimeAppLogo.png',
-                ),
+                ProjectCard(),
+                // SizedBox(width: 40.0),
               ],
             ),
           if (isMobile(context))
             Column(
               children: [
-                ProductCard(
-                  url: 'https://play.google.com/store/apps/details?id=com.flutter.klime',
-                  image: 'assets/images/klimeAppLogo.png',
-                ),
+                ProjectCard(),
               ],
             ),
         ],
