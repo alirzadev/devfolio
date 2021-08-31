@@ -1,8 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:devfolio/utilities/responsive.dart';
-import 'package:devfolio/view/custom_widgets/project_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProjectsSection extends StatefulWidget {
   ProjectsSection({Key key}) : super(key: key);
@@ -14,6 +15,12 @@ class ProjectsSection extends StatefulWidget {
 class _ProjectsSectionState extends State<ProjectsSection> {
   double endRadius = 0;
   double elevation = 2.0;
+
+  List projects = [
+    {
+      'img': '',
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -57,20 +64,41 @@ class _ProjectsSectionState extends State<ProjectsSection> {
             ),
           ),
           SizedBox(height: isDesktop(context) ? 55 : 45),
-          if (!isMobile(context))
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ProjectCard(),
-                // SizedBox(width: 40.0),
-              ],
+          GridView.builder(
+            shrinkWrap: true,
+            itemCount: 4,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: !isMobile(context) ? 3 : 1,
+              childAspectRatio: 4 / 3,
+              mainAxisSpacing: 5.0,
+              crossAxisSpacing: isMobile(context) ? Get.width / 10.0 : 5.0,
             ),
-          if (isMobile(context))
-            Column(
-              children: [
-                ProjectCard(),
-              ],
-            ),
+            itemBuilder: (context, index) {
+              return Container(
+                decoration: BoxDecoration(border: Border.all(color: AppColors.red)),
+                child: CachedNetworkImage(
+                  imageUrl: "http://via.placeholder.com/200x150",
+                  placeholder: (context, url) => CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(AppColors.red),
+                  ),
+                  errorWidget: (context, url, error) => Icon(Icons.image, size: 52.0, color: AppColors.red),
+                ),
+              );
+            },
+          ),
+          // Row(
+          //   crossAxisAlignment: CrossAxisAlignment.start,
+          //   children: [
+          //     ProjectCard(),
+          //     // SizedBox(width: 40.0),
+          //   ],
+          // ),
+          // if (isMobile(context))
+          //   Column(
+          //     children: [
+          //       ProjectCard(),
+          //     ],
+          //   ),
         ],
       ),
     );
