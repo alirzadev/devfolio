@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:devfolio/utilities/responsive.dart';
+import 'package:devfolio/view/custom_widgets/prog_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class ProjectsSection extends StatefulWidget {
   ProjectsSection({Key key}) : super(key: key);
@@ -18,7 +18,10 @@ class _ProjectsSectionState extends State<ProjectsSection> {
 
   List projects = [
     {
-      'img': '',
+      'img': 'https://raw.githubusercontent.com/alirzadev/devfolio/master/assets/images/stimy.png',
+    },
+    {
+      'img': 'https://raw.githubusercontent.com/alirzadev/devfolio/master/assets/images/antiscam.png',
     },
   ];
 
@@ -65,22 +68,21 @@ class _ProjectsSectionState extends State<ProjectsSection> {
           ),
           SizedBox(height: isDesktop(context) ? 55 : 45),
           GridView.builder(
+            primary: false,
             shrinkWrap: true,
-            itemCount: 4,
+            itemCount: projects.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: !isMobile(context) ? 3 : 1,
               childAspectRatio: 4 / 3,
-              mainAxisSpacing: 5.0,
-              crossAxisSpacing: isMobile(context) ? Get.width / 10.0 : 5.0,
+              mainAxisSpacing: !isMobile(context) ? 10.0 : 25.0,
+              crossAxisSpacing: 10.0,
             ),
             itemBuilder: (context, index) {
               return Container(
                 decoration: BoxDecoration(border: Border.all(color: AppColors.red)),
                 child: CachedNetworkImage(
-                  imageUrl: "http://via.placeholder.com/200x150",
-                  placeholder: (context, url) => CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(AppColors.red),
-                  ),
+                  imageUrl: projects[index]['img'],
+                  placeholder: (context, url) => ProgIndicator(),
                   errorWidget: (context, url, error) => Icon(Icons.image, size: 52.0, color: AppColors.red),
                 ),
               );

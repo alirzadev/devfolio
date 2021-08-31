@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:devfolio/utilities/app_colors.dart';
 import 'package:devfolio/utilities/responsive.dart';
 import 'package:devfolio/view/custom_widgets/skills_icon.dart';
@@ -92,9 +93,10 @@ class IntroSection extends StatelessWidget {
               // width: width/3,
               // height: height * 0.3,
               padding: const EdgeInsets.only(top: 30),
-              child: Image.asset(
-                'assets/images/manOnTable.png',
-                fit: BoxFit.contain,
+              child: CachedNetworkImage(
+                imageUrl: 'https://raw.githubusercontent.com/alirzadev/devfolio/master/assets/images/manOnTable.png',
+                placeholder: (context, url) => SizedBox(),
+                errorWidget: (context, url, error) => SizedBox(),
               ),
               // child: Text('Image or Illustration'),
               // child: Lottie.asset('assets/devices01.json', repeat: true),
